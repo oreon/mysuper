@@ -5,6 +5,7 @@ from django import forms
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as AuthUserAdmin
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
+from mysuper.users.models import Department, Employee, Assets
 
 from .models import User
 
@@ -36,3 +37,8 @@ class MyUserCreationForm(UserCreationForm):
 class UserAdmin(AuthUserAdmin):
     form = MyUserChangeForm
     add_form = MyUserCreationForm
+    
+admin.site.register(Department)
+
+admin.site.register(Employee)
+admin.site.register(Assets)

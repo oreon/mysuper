@@ -20,3 +20,17 @@ class User(AbstractUser):
 
     def get_absolute_url(self):
         return reverse('users:detail', kwargs={'username': self.username})
+
+
+class Department(models.Model):
+    name = models.CharField(_("Name of User"), blank=True, max_length=255)
+    maxcap = models.IntegerField(_("Name of User"), blank=True, max_length=255)   
+
+
+class Employee(models.Model):
+    department = models.ForeignKey(Department, related_name='employees', on_delete=models.CASCADE)
+    name = models.CharField( blank=True, max_length=255)
+     
+class Assets(models.Model):
+    department = models.ForeignKey(Department, related_name='assets', on_delete=models.CASCADE)
+    name = models.CharField( blank=True, max_length=15)

@@ -7,6 +7,9 @@ from . import views
 
 urlpatterns = [
     # URL pattern for the UserListView
+    
+   
+    
     url(
         regex=r'^$',
         view=views.UserListView.as_view(),
@@ -33,4 +36,7 @@ urlpatterns = [
         view=views.UserUpdateView.as_view(),
         name='update'
     ),
+               
+               
+    
 ]
